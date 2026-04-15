@@ -11,14 +11,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   r-cran-rjson
 
 WORKDIR /ref
-ADD hg38_GENCODE_v23_basic.bed.gz /ref/hg38_GENCODE_v23_basic.bed.gz
+COPY hg38_GENCODE_v23_basic.bed.gz /ref/hg38_GENCODE_v23_basic.bed.gz
 RUN gunzip -c /ref/hg38_GENCODE_v23_basic.bed.gz > /ref/hg38_GENCODE_v23_basic.bed
 
 WORKDIR /app
-ADD ./requirements.txt /app/requirements.txt
+COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 WORKDIR /app
-ADD . /app
+COPY . /app
 
 ENTRYPOINT ["/bin/bash", "run.sh"]
