@@ -5,8 +5,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   zlib1g-dev \
   time \
   sambamba \
-  samblaster\
-  wget \ 
+  samblaster \
+  wget \
   make \
   r-cran-rjson
 
